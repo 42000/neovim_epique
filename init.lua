@@ -1,7 +1,4 @@
-require('lsp_setup')
-require('keymaps')
-require('options')
-require('lazy_nvim')
+require('config')
 
 -- LAZY SETUP
 -- tout charger

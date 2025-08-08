@@ -1,7 +1,7 @@
 -- require('lsp_setup')
-require('keymaps')
-require('options')
-require('lazy_nvim')
+require('config.keymaps')
+require('config.options')
+require('config.lazy_nvim')
 
 -- LAZY SETUP
 require("lazy").setup({
