@@ -5,31 +5,20 @@ local ibl = {
 local treesitter = {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = "BufReadPre",
     requires = {'nvim-treesitter/nvim-treesitter-refactor'},
-    opts = {
-	    highlight = {
-		    enable = true,
-		    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-		    -- Instead of true it can also be a list of languages
-		    additional_vim_regex_highlighting = false,
-	    },
-	    ensure_installed = {
-		    "yaml",
-		    "c",
-		    "markdown",
-		    "markdown_inline",
-		    "bash",
-		    "lua",
-		    "vim",
-	    },
-    },
     config = function()
 	    vim.opt.foldmethod = 'expr'
 	    vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 	    -- vim.api.nvim_create_autocmd('BufReadPost, FileReadPost', {pattern="*", command = "normal zR"})
 	    require 'nvim-treesitter.install'.compilers = { 'gcc' }
+        local opts = {
+            ensure_installed = { "yaml", "c", "markdown", "markdown_inline", "bash", "lua", "vim", },
+            autoinstall = true,
+            highlight = { enable = true, additional_vim_regex_highlighting = false, },
+            indent = {enable = true},
+        }
+        require("nvim-treesitter.configs").setup(opts)
     end
 }
 
@@ -134,9 +123,14 @@ local solarized = {
 	}
 }
 
+local doom_chad = {
+    'NTBBloodbath/doom-one.nvim',
+}
+
 return {
 	ibl,
 	treesitter,
 	gruvbox,
-	solarized
+	solarized,
+    -- doom_chad,
 }

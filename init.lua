@@ -14,6 +14,7 @@ require("lazy").setup("plugins")
 --     }
 -- })
 
-vim.cmd("set background=light")
-vim.cmd("colorscheme solarized")
 vim.cmd("hi SpellBad term=reverse ctermbg=12 gui=undercurl guisp=Red")
+-- vim.cmd("set background=light")
+-- vim.cmd("colorscheme solarized")
+vim.cmd("colorscheme unokai")
