@@ -46,6 +46,7 @@ local surround = {
 
 local easy_align = {
     'junegunn/vim-easy-align',
+	event = "VeryLazy",
     config = function()
     vim.cmd("xmap ga <Plug>(EasyAlign)")
     vim.cmd("nmap ga <Plug>(EasyAlign)")
@@ -63,7 +64,7 @@ local autopair = {
 
 return {
 	comment,
-	flash,
+	-- flash,
 	surround,
 	easy_align,
 	-- autopair,

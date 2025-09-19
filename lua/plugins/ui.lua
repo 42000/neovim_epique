@@ -17,6 +17,7 @@ local fzf = {
         vim.keymap.set("n","<Tab><Tab>", ":FzfLua<CR>", {desc = "fzf"})
         vim.keymap.set("n","<Tab>t", ":FzfLua colorschemes<CR>", {desc = "colorschemes"})
         vim.keymap.set("n","<Tab>f", ":FzfLua files<CR>", {desc = "files"})
+        vim.keymap.set("n","<Tab>d", ":FzfLua lsp_document_symbols<CR>", {desc = "document symbols"})
         vim.keymap.set("n","<Tab>r", "",{desc = "resume"})
         vim.keymap.set("n","<Tab>rg", ":FzfLua live_grep_resume<CR>", {desc = "live grep"})
         vim.keymap.set("n","<Tab>rr", ":FzfLua resume<CR>", {desc = "resume"})
@@ -65,9 +66,60 @@ local oil = {
   dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 }
 
+local snacks = {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        bigfile = { enabled = false },
+        dashboard = { enabled = false },
+        explorer = { enabled = false },
+        indent = { enabled = false },
+        input = { enabled = false },
+        picker = {
+            enabled = true,
+            win = {
+                input  = {
+                    keys = {
+                        ["<Esc>"] = { "close", mode = { "n", "i" } },
+                        ["<C-[>"] = { "close", mode = { "n", "i" } },
+                    }
+                }
+            },
+        },
+        notifier = { enabled = false },
+        quickfile = { enabled = false },
+        scope = { enabled = false },
+        scroll = { enabled = false },
+        statuscolumn = { enabled = false },
+        terminal = { enabled = false },
+        words = { enabled = false },
+    },
+    keys = {
+            { "<Tab>", "", desc = "Snacks picker" },
+            { "<Tab>f", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+            { "<Tab>o", function() Snacks.picker.recent() end, desc = "oldfiles" },
+            { "<Tab>e", function() Snacks.picker.buffers() end, desc = "Buffers" },
+            { "<Tab>g", function() Snacks.picker.grep() end, desc = "Grep" },
+            { "<Tab>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+            { "<Tab><Tab>", function() Snacks.picker() end, desc = "picker" },
+            { "<Tab>r", function() Snacks.picker.resume() end, desc = "colorschemes" },
+            { "<Tab>t", function() Snacks.picker.colorschemes() end, desc = "picker" },
+            { "<Tab>k", function() Snacks.picker.keymaps() end, desc = "keymaps" },
+            { "<Tab>d", function() Snacks.picker.lsp_symbols() end, desc = "lsp symbols" },
+            { "<Tab>s", function() Snacks.picker.spelling() end, desc = "spelling" },
+
+    },
+}
+
 
 return {
     whichkey,
-    fzf,
+    -- fzf,
     oil,
+    snacks,
 }

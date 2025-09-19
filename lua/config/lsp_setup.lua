@@ -7,11 +7,16 @@ ENSURED_LSP = {
     -- "vhdl_ls",
 }
 
+
 vim.lsp.enable(ENSURED_LSP)
+vim.lsp.config('*', {
+    capabilities = require('blink.cmp').get_lsp_capabilities()
+})
 
 -- OMNICOMPLETE (NATIVE) => un peu à chier
 -- Mieux vaut utiliser blink, beaucoup plus fourni
 -- sauf que blink nique des trucs gnr les digraph, ça me saoule
+-- je suis une pute stupide, il fallait juste enlever C-k dans la config
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --     callback = function(ev)
 --         local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -26,9 +31,9 @@ vim.diagnostic.config({ virtual_text = true })
 
 -- FZF-LUA :
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = 'lsp definition'})
-vim.keymap.set('n', 'gra', ":FzfLua lsp_code_actions<CR>", {desc = 'code action'})
-vim.keymap.set('n', 'gri', ":FzfLua lsp_implementations<CR>", {desc = 'implementations'})
-vim.keymap.set('n', 'grr', ":FzfLua lsp_references<CR>", {desc = 'references'})
+-- vim.keymap.set('n', 'gra', ":FzfLua lsp_code_actions<CR>", {desc = 'code action'})
+-- vim.keymap.set('n', 'gri', ":FzfLua lsp_implementations<CR>", {desc = 'implementations'})
+-- vim.keymap.set('n', 'grr', ":FzfLua lsp_references<CR>", {desc = 'references'})
 vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, {desc = 'lsp rename'})
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 
@@ -39,6 +44,7 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 -- vim.keymap.set('n', 'grr', vim.lsp.buf.references, {desc = 'references'})
 -- vim.keymap.set('n', 'grn', vim.lsp.buf.rename, {desc = 'rename'})
 
+--[[
 -- COPIÉ D'INTERNET
 vim.o.complete = ".,o" -- use buffer and omnifunc
 vim.o.completeopt = "fuzzy,menuone,noselect" -- add 'popup' for docs (sometimes)
@@ -77,4 +83,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     })
   end,
 })
-
+]]
+-- vim.lsp.config('*', {
+--     capabilities = require('blink.cmp').get_lsp_capabilities()
+-- })

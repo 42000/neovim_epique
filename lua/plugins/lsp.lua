@@ -22,6 +22,7 @@ local blink  = {
             -- show with a list of providers
             ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
             ['<CR>'] = { 'accept', 'fallback' },
+            ['<C-k>'] = {},
         },
 
         -- Disable for some filetypes
@@ -57,5 +58,5 @@ local blink  = {
 
 return {
     lsp_color,
-    -- blink,
+    blink,
 }

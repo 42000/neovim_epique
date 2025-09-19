@@ -1,18 +1,12 @@
-require('config')
-
 -- LAZY SETUP
 -- tout charger
-require("lazy").setup("plugins")
+LAZY_SETUP = "plugins"
 -- Pour charger un lot specifique (ex : pour Neovim dans Vscode)
--- require("lazy").setup({
---     spec = {
---         {import = "plugins.lsp"},
---         {import = "plugins.motions"},
---         {import = "plugins.special"},
---         {import = "plugins.ui"},
---         {import = "plugins.visual"},
---     }
--- })
+-- LAZY_SETUP = {
+--     {import = "plugins.<...>"},
+-- }
+require('config.lazy_nvim')
+require('config')
 
 vim.cmd("set background=light")
 vim.cmd("colorscheme onedark")
