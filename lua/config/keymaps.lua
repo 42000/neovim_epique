@@ -10,8 +10,8 @@ vim.keymap.set({'n','v'}, '<leader>t', ':tabnew<CR>', {desc='new tab', silent=tr
 vim.keymap.set({'n', 'v'}, '<leader>?', ':noh<CR>', {silent=true})
 vim.keymap.set({'n', 'v'}, '<leader>/', ':noh<CR>', {silent=true})
 
-vim.keymap.set({'n', 'v'}, '<C-j>', '<C-d>', {silent=true})
-vim.keymap.set({'n', 'v'}, '<C-k>', '<C-u>', {silent=true})
+-- vim.keymap.set({'n', 'v'}, '<C-j>', '<C-d>', {silent=true})
+-- vim.keymap.set({'n', 'v'}, '<C-k>', '<C-u>', {silent=true})
 
 -- INSIDE/AROUND QUOTE
 vim.keymap.set({'x','o'}, 'iQ', 'i"', {noremap=true, desc="inner \""})

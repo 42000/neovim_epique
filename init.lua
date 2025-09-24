@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 -- LAZY SETUP
 -- tout charger
 LAZY_SETUP = "plugins"
