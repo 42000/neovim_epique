@@ -104,7 +104,7 @@ local neorg = {
 }
 
 return {
-	tmux,
+	-- tmux,
 	-- vimtex,
 	neorg,
 }

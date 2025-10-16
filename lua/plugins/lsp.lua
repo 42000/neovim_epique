@@ -57,6 +57,6 @@ local blink  = {
     -- See the full "keymap" documentation for information on defining your own keymap.
 
 return {
-    lsp_color,
+    -- lsp_color,
     blink,
 }

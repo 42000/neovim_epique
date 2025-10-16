@@ -58,3 +58,4 @@ vim.keymap.set("n","<leader>cc", ":cd %:h<CR>", {desc = "set to current"})
 
 vim.keymap.set("n","<leader>f",function () vim.diagnostic.open_float() end, {desc = "Diagnostic"})
 vim.keymap.set("n","<C-c>","`", {desc = "marks", remap = true})
+vim.keymap.set("n", "<leader>p", switch_theme) --cycle themes

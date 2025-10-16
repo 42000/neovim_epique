@@ -125,7 +125,7 @@ local solarized = {
 return {
 	ibl,
 	treesitter,
-	-- gruvbox,
+	gruvbox,
 	solarized,
     -- "Mofiqul/vscode.nvim",
     "navarasu/onedark.nvim",

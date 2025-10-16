@@ -1,45 +1,51 @@
-vim.opt.termguicolors = true -- couleur du terminal
+local options = {
+    termguicolors = true, -- couleur du terminal
 
--- NUMEROS DE LIGNE
-vim.opt.ruler = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.numberwidth = 4
-vim.opt.signcolumn = "yes"
-vim.opt.wrap = false
-vim.opt.backspace = '2'
-vim.opt.showcmd = true
-vim.opt.laststatus = 2
-vim.opt.autowrite = true
-vim.opt.cursorline = true
-vim.opt.autoread = true
-vim.opt.winborder = "single"
+    -- NUMEROS DE LIGNE
+    ruler = true,
+    number = true,
+    relativenumber = true,
+    numberwidth = 4,
+    signcolumn = "yes",
+    wrap = false,
+    backspace = '2',
+    showcmd = true,
+    laststatus = 2,
+    autowrite = true,
+    cursorline = true,
+    autoread = true,
+    winborder = "single",
 
--- TABS
-vim.opt.tabstop = 4 -- taille des indents
-vim.opt.shiftwidth = 4
-vim.opt.shiftround = true
-vim.opt.expandtab = true -- convert tab -> spaces
-vim.opt.autoindent = true
-vim.opt.smartindent = true
--- vim.o.showtabline = 2
--- vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
+    -- TABS
+    tabstop = 4, -- taille des indents
+    shiftwidth = 4,
+    shiftround = true,
+    expandtab = true, -- convert tab -> spaces
+    autoindent = true,
+    smartindent = true,
+    -- vim.o.showtabline = 2
+    -- sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
 
--- SEARCH
-vim.opt.incsearch = true
-vim.opt.ignorecase = true -- ignorer les majuscule lors d'une recherche
-vim.opt.smartcase = true
--- vim.opt.clipboard = unnamedplus
-vim.opt.cmdheight = 1
-vim.opt.spelllang = 'fr'
-vim.opt.virtualedit = "block"
+    -- SEARCH
+    incsearch = true,
+    ignorecase = true, -- ignorer les majuscule lors d'une recherche
+    smartcase = true,
+    -- clipboard = unnamedplus
+    cmdheight = 1,
+    spelllang = 'fr',
+    virtualedit = "block",
 
-vim.opt.conceallevel = 3
+    conceallevel = 3,
 
--- retirer le timeout des commandes, on verra si ca pete
--- c'est pour les raccourcis de iQ -> i" et aQ -> a"
--- peut-être qu'il faut plutôt augmenter le timeoutlen jsp
-vim.opt.timeout = false
+    -- retirer le timeout des commandes, on verra si ca pete
+    -- c'est pour les raccourcis de iQ -> i" et aQ -> a"
+    -- peut-être qu'il faut plutôt augmenter le timeoutlen jsp
+    timeout = false,
+}
+
+for k, v in pairs(options) do
+	vim.opt[k] = v
+end
 
 -- Line numbers etc in Netrw
 vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
