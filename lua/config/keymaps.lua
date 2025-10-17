@@ -59,3 +59,12 @@ vim.keymap.set("n","<leader>cc", ":cd %:h<CR>", {desc = "set to current"})
 vim.keymap.set("n","<leader>f",function () vim.diagnostic.open_float() end, {desc = "Diagnostic"})
 vim.keymap.set("n","<C-c>","`", {desc = "marks", remap = true})
 vim.keymap.set("n", "<leader>p", switch_theme) --cycle themes
+
+-- WSL
+if vim.fn.has('wsl') == 1 then
+    local wsl_copy = function()
+        vim.fn.system('clip.exe', vim.fn.getreg('"'))
+    end
+    vim.keymap.set("n", "<leader>w", "<NOP>", {desc = "WSL"})
+    vim.keymap.set("n", "<leader>wc", wsl_copy, {desc = "WSL last yank into clip.exe"})
+end

@@ -4,7 +4,7 @@ vim.g.maplocalleader = ' '
 -- tout charger
 LAZY_SETUP = "plugins"
 -- Pour charger un lot specifique (ex : pour Neovim dans Vscode)
--- LAZY_SETUP = {
+-- lazy_setup = {
 --     {import = "plugins.<...>"},
 -- }
 require('config.lazy_nvim')

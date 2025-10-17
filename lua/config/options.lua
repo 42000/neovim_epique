@@ -49,25 +49,3 @@ end
 
 -- Line numbers etc in Netrw
 vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
-
--- WSL CLIPBOARD
-vim.opt.clipboard = "unnamedplus"
-if vim.fn.has('wsl') == 1 then
-    vim.api.nvim_create_autocmd('TextYankPost', {
-        group = vim.api.nvim_create_augroup('Yank', { clear = true }),
-        callback = function()
-            vim.fn.system('clip.exe', vim.fn.getreg('"'))
-        end,
-    })
-end
-
-if vim.g.neovide then
-    vim.o.guifont = 'Cousine Nerd Font Propo:h14'
-    vim.g.neovide_opacity = 1
-    vim.g.neovide_refresh_rate = 60
-    vim.g.neovide_refresh_rate_idle = 5
-    vim.g.neovide_cursor_animation_length = 0.025
-    vim.g.neovide_scroll_animation_length = 0.075
-    vim.g.neovide_remember_window_size = true
-    vim.g.neovide_cursor_vfx_mode = ""
-end
