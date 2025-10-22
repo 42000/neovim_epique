@@ -39,6 +39,22 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "CmdlineEnter", "WinLeave
    end,
 })
 
+-- CONFIG EN MARKDOWN
+vim.api.nvim_create_autocmd('FileType' , {
+    pattern = "markdown",
+    callback = function()
+        -- CTRL+ENTER = ALLER AU FICHIER
+        vim.keymap.set({"v","n"}, "<NL>", "$F(gf", {buffer = true})
+        vim.opt_local.tabstop = 2 -- taille des indents
+        vim.opt_local.shiftwidth = 2
+        vim.keymap.set("v", "<leader>m", "<NOP>", {buffer = true, desc = "markdown"})
+        -- bold
+        vim.keymap.set("v", "<leader>mb", "x4i*<Esc>hP", {buffer = true, desc = "bold"})
+        vim.keymap.set("v", "<leader>mi", "x2i*<Esc>P", {buffer = true, desc = "italics"})
+        vim.keymap.set("v", "<leader>mx", "x6i*<Esc>2hP", {buffer = true, desc = "bold + italics"})
+    end,
+})
+
 -- LAGGY DONC BYE BYE
 -- -- WSL CLIPBOARD
 -- vim.opt.clipboard = "unnamedplus"

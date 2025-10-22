@@ -68,3 +68,7 @@ if vim.fn.has('wsl') == 1 then
     vim.keymap.set("n", "<leader>w", "<NOP>", {desc = "WSL"})
     vim.keymap.set("n", "<leader>wc", wsl_copy, {desc = "WSL last yank into clip.exe"})
 end
+
+-- MARKDOWN
+vim.keymap.set({"n", "v"}, "<leader>m", "<NOP>", {desc = "markdown"})
+vim.keymap.set({"n", "v"}, "<leader>mw", "<cmd>e ~/Notes/index.md<CR>", {desc = "ouvrir notes"})
